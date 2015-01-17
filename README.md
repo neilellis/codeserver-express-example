@@ -1,2 +1,1 @@
-# serverhub-example
-Example for the ServerHub service
+An example service to show http://codeserver.io in action.
