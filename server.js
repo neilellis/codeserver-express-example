@@ -1,13 +1,10 @@
 var vertx = require('vertx');
 var server = vertx.createHttpServer();
 
-server.requestHandler(function(request) {
+var routeMatcher = new vertx.RouteMatcher();
 
-  var str = '';
-  request.headers().forEach(function(key, value) {
-    str = str.concat(key, ': ', value, '\n');
-  });
+routeMatcher.get('/date', function(req) {
+    req.response().end(new Date());
+});
 
-  request.response.end(str);
-
-}).listen(8080);
+server.requestHandler(routeMatcher).listen(8080);
