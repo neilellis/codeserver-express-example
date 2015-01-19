@@ -8,9 +8,4 @@ rm.get('/details/:user/:id', function(req) {
   req.response.end("User: " + req.params().get('user') + " ID: " + req.params().get('id'))
 });
 
-// Catch all - serve the index page
-rm.getWithRegEx('.*', function(req) {
-  req.response.sendFile("index.html");
-});
-
 vertx.createHttpServer().requestHandler(rm).listen(8080);
