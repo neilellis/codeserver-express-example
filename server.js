@@ -3,8 +3,12 @@ var server = vertx.createHttpServer();
 
 var routeMatcher = new vertx.RouteMatcher();
 
-routeMatcher.get('/hello', function(req) {
-    req.response().end("Hello World");
+routeMatcher.get('/dogs', function(req) {
+    req.response().end('You requested dogs');
 });
 
-server.requestHandler(routeMatcher).listen(8080);
+routeMatcher.get('/cats', function(req) {
+    req.response().end('You requested cats');
+});
+
+server.requestHandler(routeMatcher).listen(8888);
