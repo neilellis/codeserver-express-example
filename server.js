@@ -10,4 +10,4 @@ server.requestHandler(function(request) {
 
   request.response.end(str);
 
-}).listen(8080, 'localhost');
+}).listen(8080);
