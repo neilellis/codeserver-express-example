@@ -1,3 +1,4 @@
+var vertx = require('vertx');
 var server = vertx.createHttpServer();
 
 server.requestHandler(function(request) {
