@@ -1,14 +1,16 @@
 var vertx = require('vertx');
-var server = vertx.createHttpServer();
 
-var routeMatcher = new vertx.RouteMatcher();
+// Inspired from Sinatra / Express
+var rm = new vertx.RouteMatcher();
 
-routeMatcher.get('/dogs', function(req) {
-    req.response.end('You requested dogs');
+// Extract the params from the uri
+rm.get('/details/:user/:id', function(req) {
+  req.response.end("User: " + req.params().get('user') + " ID: " + req.params().get('id'))
 });
 
-routeMatcher.get('/cats', function(req) {
-    req.response.end('You requested cats');
+// Catch all - serve the index page
+rm.getWithRegEx('.*', function(req) {
+  req.response.sendFile("index.html");
 });
 
-server.requestHandler(routeMatcher).listen(8080);
+vertx.createHttpServer().requestHandler(rm).listen(8080);
