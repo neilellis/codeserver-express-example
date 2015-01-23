@@ -19,4 +19,4 @@ module.exports= function(instanceConfig, projectConfig) {
 };
 ```
 
-If you fork this project you will be able to access it on Codeserver.io under http://codeserver.io/<your-username>/codeserver-example/master/ and make changes to it yourself.
+If you fork this project you will be able to access it on Codeserver.io under http://codeserver.io/{your-username}/codeserver-example/master/ and make changes to it yourself.
