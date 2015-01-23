@@ -5,7 +5,7 @@ module.exports= function(instanceConfig, projectConfig) {
 
 
     router.get('/', function (req, res) {
-        res.send(JSON.stringify(req.headers));
+        res.send("Welcome to your first Codeserver.io project!");
     });
 
     return {routes:router};
