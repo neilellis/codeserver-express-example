@@ -1,10 +1,12 @@
-var vertx = require('vertx');
+var express = require('express');
 
-// Inspired from Sinatra / Express
-var rm = new vertx.RouteMatcher();
+module.exports= function(instanceConfig, projectConfig) {
+    var router = express.Router();
 
-rm.get('/details/:user/:id', function(req) {
-  req.response.end("User: " + req.params().get('user') + " ID: " + req.params().get('id'))
-});
 
-vertx.createHttpServer().requestHandler(rm).listen(8080);
+    router.get('/', function (req, res) {
+        res.send(JSON.stringify(req.headers));
+    });
+
+    return {routes:router};
+};
