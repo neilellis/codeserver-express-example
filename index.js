@@ -8,5 +8,5 @@ module.exports= function(instanceConfig, projectConfig) {
         res.send("Welcome to your first Codeserver.io project!");
     });
 
-    return {routes:router};
+    return {router:router};
 };
